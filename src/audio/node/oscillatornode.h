@@ -24,11 +24,16 @@ namespace nap
          */
         class NAPAPI WaveTable
         {
+
 		public:
 			enum class Waveform { Sine, Saw, Square, Triangle };
 			static constexpr float Nyquist = 22500.f;
 
         public:
+            // Default constructor and deconstructor
+            WaveTable() = default;
+            ~WaveTable() = default;
+
             /**
              * Constructor takes the size of the waveform buffer and the waveform type.
              * @param size Size of the waveform in samples
@@ -52,8 +57,8 @@ namespace nap
              * @return the size of the waveform buffer
              */
             long getSize() const { return mData.getSize(); }
-            
-        private:
+
+        protected:
 			using BandLimitedData = MultiSampleBuffer;
             BandLimitedData mData;
 			std::vector<int> mBandBottoms;

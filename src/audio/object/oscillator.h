@@ -42,7 +42,7 @@ namespace nap
              */
             SafePtr<WaveTable> getWave() { return mWave.get(); }
 
-        private:
+        protected:
             SafeOwner<WaveTable> mWave = nullptr;
             NodeManager& mNodeManager;
         };
@@ -111,7 +111,6 @@ namespace nap
 			int getChannelCount() const override { return mNodes.size(); }
 			OutputPin* getOutputForChannel(int channel) override { return &mNodes[channel]->output; }
 			OscillatorNode* getChannel(int channel) { return mNodes[channel].getRaw(); }
-
 		private:
 			std::vector<SafePtr<WaveTable>> mWaveTables;
 			std::vector<SafeOwner<OscillatorNode>> mNodes;
