@@ -29,6 +29,8 @@ namespace nap
 			static constexpr float Nyquist = 22500.f;
 
         public:
+            WaveTable()= default;
+
             /**
              * Constructor takes the size of the waveform buffer and the waveform type.
              * @param size Size of the waveform in samples
@@ -52,8 +54,8 @@ namespace nap
              * @return the size of the waveform buffer
              */
             long getSize() const { return mData.getSize(); }
-            
-        private:
+
+        protected:
 			using BandLimitedData = MultiSampleBuffer;
             BandLimitedData mData;
 			std::vector<int> mBandBottoms;

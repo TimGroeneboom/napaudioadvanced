@@ -44,7 +44,7 @@ namespace nap
              */
             SafePtr<WaveTable> getWave() { return mWave.get(); }
 
-        private:
+        protected:
             SafeOwner<WaveTable> mWave = nullptr;
             NodeManager* mNodeManager = nullptr;
         };
