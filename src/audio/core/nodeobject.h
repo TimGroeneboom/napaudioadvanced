@@ -111,7 +111,7 @@ namespace nap
              */
             Node* getNonTyped() override { return mNode.getRaw(); }
 
-        private:
+        protected:
             SafeOwner<NodeType> mNode = nullptr;
         };
 
